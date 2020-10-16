@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style> 
+
+  .container {
+    border:2px solid black;
+    background-color: #b0eef5;
+    border-radius: 3px;
+    position: relative;
+    color: 2px solid black;
+    top:10%;
+    left:45%;
+    transform: translate(-50%, -50%);
+    width:50%;
+    padding: 1%;
+    box-sizing: border-box;
+    margin: 1%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  tr, th, td{
+    border: 1px solid black;
+    font-weight: 900;
+    text-align:center;
+  }
+</style>
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Heapify</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style="background-color:#F0F8FF;">
+  <div class="topnav">
+  <a href="#" class="active">Home</a>
+  <a href = "javascript:;" onclick = "this.href='/empi/emprating/' + getURL();">Profile</a>
+  <a href="/">Logout</a>
+</div>
+
+  <div>
+    <h1 align="center">Appraisal Info</h1>
+  </div>
+  <% if (locals.err) {%>
+  <center>
+  <table class="container">
+    <%  data.forEach(function(data){%>
+
+    <tr>
+      <th>NAME</th>
+      <td><%=data.fname %></td>
+    </tr>
+    <tr>
+    <th>Surname:</th>
+    <td><%=data.lname %></td>
+    </tr>
+    <tr>
+    <th>Emp-id</th>
+    <td><%=data.id %></td>
+    </tr>
+    <tr>
+    <th>salary</th>
+    <td><%=data.salary %></td>
+    </tr>
+    <tr>
+    <th>rating</th>
+    <td><%=data.rating%></td>
+    </tr>
+    <tr>
+    <th>revised salary</th>
+    <td><%= locals.r  %></td>
+        </tr>
+        <%  }); %>
+  </table>
+  </center>
+   <% } %>
+    <% if (locals.corr) { %>
+  <center>
+  <table class="container"> 
+  <%  data.forEach(function(data){%>
+    <tr>
+      <th>NAME</th>
+      <td><%=data.fname %></td>
+    </tr>
+    <tr>
+      <th>SURNAME</th>
+      <td><%=data.lname %></td>
+    </tr>
+    <tr>
+      <th>EMP-ID</th>
+      <td><%=data.id %></td>
+    </tr>
+    <tr>
+      <th>SALARY</th>
+      <td><%=data.salary %></td>
+    </tr>
+  <%  }); %>
+  </table>
+  </center>
+<div><center><p style="font-size:30px">No Rating is given yet</p></center></div></div>
+      <% } %>
+  </body>  
+</html>

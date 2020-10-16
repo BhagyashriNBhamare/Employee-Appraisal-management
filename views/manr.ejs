@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script >
+var r =window.location.href;
+var w=r.split("/")
+    function getURL() {
+        // alert("The URL of this page is: " + window.location.href);
+        return w[w.length-1];
+    }
+ </script>
+ <link href="/css/style.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Heapify</title>
+</head>
+
+<body style="background-color:#F0F8FF;">
+  <div class="topnav">
+  <a href="#" class="active">Home</a>
+<a href = "javascript:;" onclick = "this.href='/manager/empr/' + getURL();">Rating To Employee</a>
+  <a href="javascript:;" onclick = "this.href='/manager/rating/' + getURL();">Rating</a>
+  <a href="/">Logout</a>
+</div>
+  <div>
+    <h1 align="center">Appraisal Info</h1>
+  </div>
+  <% if (locals.err) {%>
+  <center>
+  <table>
+    <%  data.forEach(function(data){%>
+
+    <tr>
+      <th>NAME</th>
+      <td><%=data.fname %></td>
+    </tr>
+    <tr>
+    <th>Surname:</th>
+    <td><%=data.lname %></td>
+    </tr>
+    <tr>
+    <th>Emp-id</th>
+    <td><%=data.id %></td>
+    </tr>
+    <tr>
+    <th>salary</th>
+    <td><%=data.salary %></td>
+    </tr>
+    <tr>
+    <th>rating</th>
+    <td><%=data.rating%></td>
+    </tr>
+    <tr>
+    <th>revised salary</th>
+    <td><%= locals.r  %></td>
+        </tr>
+        <%  }); %>
+  </table>
+  </center>
+   <% } %>
+    <% if (locals.corr) { %>
+  <center>
+  <table> 
+  <%  data.forEach(function(data){%>
+    <tr>
+      <th>NAME</th>
+      <td><%=data.fname %></td>
+    </tr>
+    <tr>
+      <th>SURNAME</th>
+      <td><%=data.lname %></td>
+    </tr>
+    <tr>
+      <th>EMP-ID</th>
+      <td><%=data.id %></td>
+    </tr>
+    <tr>
+      <th>SALARY</th>
+      <td><%=data.salary %></td>
+    </tr>
+  <%  }); %>
+  </table>
+  </center>
+<div><center><p style="font-size:30px">No Rating is given yet</p></center></div></div>
+      <% } %>
+  </body>  
+</html>

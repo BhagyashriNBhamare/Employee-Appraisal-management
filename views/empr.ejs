@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style> 
+
+
+</style>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heapify</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script >
+var r =window.location.href;
+var w=r.split("/")
+    function getURL() {
+        // alert("The URL of this page is: " + window.location.href);
+        return w[w.length-1];
+    }
+ </script>
+
+</head>
+<body style="background-color:#F0F8FF;">
+  <div class="topnav">
+  <a href="#" class="active">Home</a>
+  <a href = "javascript:;" onclick = "this.href='/manager/empr/' + getURL();">Rating To Employee</a>
+  <a href="javascript:;" onclick = "this.href='/manager/rating/' + getURL();">Rating</a>
+  <a href="/">Logout</a>
+</div>
+  <div>
+      <h1 align="center">Employee Rating</h1>
+      <% if (locals.err) {%>
+      <center>
+      <table >
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>salary</th>
+        <th>rating</th>
+        <th>post</th>
+        <th>avaliable</th>
+        <th>unavaliable</th>
+      </tr>
+       <%  data.forEach(function(data){%>
+        <tr>
+            <td><%=data.id %></td>
+            <td><%=data.fname %></td>
+            <td><%=data.salary %></td>
+            <form method="post" action="/delete/<%= data.id %>">
+            <td> <input type="text" id="mid" name="mid" required><br></td>
+            <td>
+                    <button type="submit" name="delete" class="btn btn-outline-danger">post</button>
+                  
+            </td>
+            </form>
+            <td>
+                  <form method="post" action="/delete1/<%= data.id %>">
+                    <button type="submit" name="delete" class="btn btn-outline-danger">visible</button>
+                  </form>
+            </td>
+            <td>
+                  <form method="post" action="/delete2/<%= data.id %>">
+                    <button type="submit" name="delete" class="btn btn-outline-danger">not visible </button>
+                  </form>
+            </td>
+        </tr>
+        <%  }); %>
+      </table>
+      </center>
+             <% } %>
+
+    <% if (locals.corr) { %>
+        <h2>no request yet </h2>
+      <% } %>
+  </div>
+  </body>  
+</html>

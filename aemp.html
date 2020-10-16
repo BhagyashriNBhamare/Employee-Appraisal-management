@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head ng-app="app3">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Heapify</title>
+	<!-- <link rel="stylesheet" type="text/css" href="/css/amain.css" media="screen"> -->
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+<script >
+var r =window.location.href;
+var w=r.split("/")
+    function getURL() {
+        // alert("The URL of this page is: " + window.location.href);
+        return w[w.length-1];
+    }
+ </script>
+
+</head>
+
+<body style="background-color:#F0F8FF;">
+<div class="topnav">
+  <ng-view></ng-view>
+  <a href="#" class="active">Home</a>
+  <a href = "javascript:;" onclick = "this.href='/empi/emprating/' + getURL();">Profile</a>
+  <a href="/">Logout</a>
+
+ 
+</div>
+
+</body>
+</html>

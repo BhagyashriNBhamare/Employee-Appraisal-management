@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <link rel="stylesheet" type="text/css" href="/css/amain.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
+<style> 
+
+
+tr, th, td{
+  border: 1px solid black;
+  font-weight: 900;
+  text-align:center;
+}
+
+</style>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heapify</title>
+
+</head>
+<body style="background-color:#F0F8FF;">
+
+    <div class="topnav">
+            <a href="#" class="active">Home</a>
+            <a href="/admin/add">Add Employee</a> | 
+            <a href="/admin/req">Rating To Manager</a> | 
+            <a href="/admin/inf">Manage Employee Data </a>
+            <a href="/">Logout</a>
+            
+</div>
+  <div>
+      <h1 align="center">Ratings of Managers </h1>
+      <% if (locals.err) {%>
+      <center>
+      <table class="container">
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Rating</th>
+        <th>Post</th>
+        <th>Avaliable</th>
+        <th>Unavaliable</th>
+      </tr>
+       <%  data.forEach(function(data){%>
+        <tr>
+            <td><%=data.id %></td>
+            <td><%=data.fname %></td>
+            <td><%=data.salary %></td>
+            <form method="post" action="/delete/<%= data.id %>">
+            <td> <input type="text" id="mid" name="mid" required><br></td>
+            <td>
+                    <button type="submit" name="delete" class="btn btn-outline-danger">Post</button>
+                  
+            </td>
+            </form>
+            <td>
+                  <form method="post" action="/delete1/<%= data.id %>">
+                    <button type="submit" name="delete" class="btn btn-outline-danger">Visible</button>
+                  </form>
+            </td>
+            <td>
+                  <form method="post" action="/delete2/<%= data.id %>">
+                    <button type="submit" name="delete" class="btn btn-outline-danger">Invisible </button>
+                  </form>
+            </td>
+        </tr>
+        <%  }); %>
+      </table>
+      </center>
+             <% } %>
+
+    <% if (locals.corr) { %>
+        <h2>no request yet </h2>
+      <% } %>
+  </div>
+  </body>  
+</html>
